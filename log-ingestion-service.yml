@@ -15,3 +15,9 @@ spring:
         enable.idempotence: true
         max.in.flight.requests.per.connection: 5
         spring.json.add.type.headers: false
+
+log:
+  ingestion:
+    topic: logs.raw
+    partitions: 12
+    replication-factor: 1
