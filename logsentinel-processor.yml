@@ -1,2 +1,21 @@
 server:
   port: 8082
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9093
+    consumer:
+      group-id: log-processor-group
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      max-poll-records: 500
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "io.logsentinel.core.model"
+        spring.json.use.type.headers: false
+
+    listener:
+      ack-mode: manual
+      type: batch
+      concurrency: 3
