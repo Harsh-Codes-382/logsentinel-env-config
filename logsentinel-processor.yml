@@ -18,6 +18,7 @@ spring:
       properties:
         spring.json.trusted.packages: "io.logsentinel.core.model"
         spring.json.use.type.headers: false
+        spring.json.value.default.type: "io.logsentinel.core.model.LogEvent"
 
     listener:
       ack-mode: manual
